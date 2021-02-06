@@ -76,6 +76,18 @@ void Game::update() {
 
     if (!this->states.empty()) {
         this->states.top()->update(this->deltaTime);
+        if (this->states.top()->getEnd()) {
+            // state wants to quit
+            this->states.top()->endState();
+            delete this->states.top();
+            this->states.pop();
+        }
+    } else {
+        // no more state, run final hooks (if any) and then terminate the app
+        this->endApplication();
+
+        // Terminate the application
+        this->window->close();
     }
 }
 
@@ -98,6 +110,10 @@ void Game::run() {
         this->update();
         this->render();
     }
+}
+
+void Game::endApplication() {
+    std::cout << "Program termination hooks...\n\n";
 }
 
 

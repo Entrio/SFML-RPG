@@ -8,12 +8,22 @@
 
 State::State(sf::RenderWindow *window) {
     this->window = window;
+    this->wantsToEndState = false;
 }
 
 State::~State() {
 
 }
 
+const bool &State::getEnd() const {
+    return this->wantsToEndState;
+}
+
+void State::checkForEnd() {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+        this->wantsToEndState = true;
+    }
+}
 
 //endregion
 

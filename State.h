@@ -25,6 +25,7 @@ private:
 
     sf::RenderWindow *window;
     std::vector<sf::Texture *> textures;
+    bool wantsToEndState;
 
     //endregion
 
@@ -36,9 +37,15 @@ public:
 
     virtual ~State();
 
+    const bool &getEnd() const;
+
+    virtual void checkForEnd();
+
     virtual void endState() = 0;
 
-    virtual void update(const float& deltaTime) = 0;
+    virtual void updateKeybinds(const float &dt) = 0;
+
+    virtual void update(const float &deltaTime) = 0;
 
     virtual void render(sf::RenderTarget *target = nullptr) = 0;
 

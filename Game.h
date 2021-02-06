@@ -40,6 +40,8 @@ public:
 
     virtual ~Game();
 
+
+    //region Functions
     void updateSFMLEvents();
 
     void updateDeltaTime();
@@ -49,6 +51,10 @@ public:
     void render();
 
     void run();
+
+    void endApplication();
+
+    //endregion
 };
 
 
