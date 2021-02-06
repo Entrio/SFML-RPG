@@ -88,6 +88,12 @@
 		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Game.h">
 			<Option target="SFML_RPG"/>
 		</Unit>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/State.cpp">
+			<Option target="SFML_RPG"/>
+		</Unit>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/State.h">
+			<Option target="SFML_RPG"/>
+		</Unit>
 		<Unit filename="/home/alex/CLionProjects/SFML_RPG/main.cpp">
 			<Option target="SFML_RPG"/>
 		</Unit>

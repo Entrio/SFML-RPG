@@ -5,11 +5,7 @@
 #ifndef SFML_RPG_GAME_H
 #define SFML_RPG_GAME_H
 
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-
-#include <SFML/Graphics.hpp>
+#include "State.h"
 
 class Game {
 
