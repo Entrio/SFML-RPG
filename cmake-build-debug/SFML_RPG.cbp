@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Entity.cpp">
+			<Option target="SFML_RPG"/>
+		</Unit>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Entity.h">
+			<Option target="SFML_RPG"/>
+		</Unit>
 		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Game.cpp">
 			<Option target="SFML_RPG"/>
 		</Unit>

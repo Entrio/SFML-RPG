@@ -29,7 +29,11 @@ void GameState::update(const float &deltaTime) {
 }
 
 void GameState::render(sf::RenderTarget *target) {
-
+    if (target) {
+        // render to target
+    } else {
+        // otherwise to the window?
+    }
 }
 
 

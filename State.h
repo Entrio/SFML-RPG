@@ -5,25 +5,18 @@
 #ifndef SFML_RPG_STATE_H
 #define SFML_RPG_STATE_H
 
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-#include <stack>
-#include <map>
-
-#include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Texture.hpp>
+#include "Entity.h"
 
 class State {
+
+protected:
+    sf::RenderWindow *window;
 
 private:
 
     //region Variables
 
-    sf::RenderWindow *window;
+
     std::vector<sf::Texture *> textures;
     bool wantsToEndState;
 
