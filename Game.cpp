@@ -8,7 +8,27 @@
 
 void Game::InitializeWindow() {
 
-    this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "SFML RPG");
+    /* Load the config file */
+    std::ifstream ifs("game.ini");
+
+    /* Set default values that will be changed via the config file */
+    std::string title = "SFML Window";
+    sf::VideoMode windowsBounds(800, 600);
+    unsigned int frameRateLimit = 60;
+    bool isVerticalSync = false;
+
+    if (ifs.is_open()) {
+        std::getline(ifs, title);
+        ifs >> windowsBounds.width >> windowsBounds.height;     // Read the width Height
+        ifs >> frameRateLimit;
+        ifs >> isVerticalSync;
+
+        ifs.close();
+    }
+
+    this->window = new sf::RenderWindow(windowsBounds, title);
+    this->window->setFramerateLimit(frameRateLimit);
+    this->window->setVerticalSyncEnabled(isVerticalSync);
 
 }
 
@@ -39,8 +59,6 @@ void Game::updateDeltaTime() {
     /* Update the deltaTime variable with the time it takes to render a single frame */
 
     this->deltaTime = this->dtClock.restart().asSeconds();
-
-    std::cout << this->deltaTime << "\n\n";
 }
 
 void Game::update() {

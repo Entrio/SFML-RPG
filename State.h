@@ -5,6 +5,8 @@
 #ifndef SFML_RPG_STATE_H
 #define SFML_RPG_STATE_H
 
+#include <fstream>
+#include <sstream>
 #include <vector>
 #include <iostream>
 #include <ctime>
