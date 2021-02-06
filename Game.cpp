@@ -34,6 +34,15 @@ void Game::updateSFMLEvents() {
     }
 }
 
+void Game::updateDeltaTime() {
+
+    /* Update the deltaTime variable with the time it takes to render a single frame */
+
+    this->deltaTime = this->dtClock.restart().asSeconds();
+
+    std::cout << this->deltaTime << "\n\n";
+}
+
 void Game::update() {
     this->updateSFMLEvents();
 }
@@ -50,9 +59,12 @@ void Game::render() {
 
 void Game::run() {
     while (this->window->isOpen()) {
+        this->updateDeltaTime();
         this->update();
         this->render();
     }
 }
+
+
 
 

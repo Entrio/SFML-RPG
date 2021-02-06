@@ -9,7 +9,6 @@
 #include <ctime>
 #include <cstdlib>
 
-
 #include <SFML/Graphics.hpp>
 
 class Game {
@@ -20,6 +19,9 @@ private:
 
     sf::RenderWindow *window;
     sf::Event sfEvent;
+
+    sf::Clock dtClock;
+    float deltaTime;
 
     //endregion
 
@@ -39,6 +41,8 @@ public:
     virtual ~Game();
 
     void updateSFMLEvents();
+
+    void updateDeltaTime();
 
     void update();
 
