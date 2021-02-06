@@ -18,9 +18,14 @@ private:
 
     //region Variables
 
+    sf::RenderWindow *window;
+    sf::Event sfEvent;
+
     //endregion
 
     //region Initialization
+
+    void InitializeWindow();
 
     //endregion
 
@@ -34,6 +39,7 @@ public:
     virtual ~Game();
 
     void updateSFMLEvents();
+
     void update();
 
     void render();
