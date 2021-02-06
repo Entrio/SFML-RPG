@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/SFML_RPG.dir/main.cpp.o CMakeFiles/SFML_RPG.dir/Game.cpp.o  -o SFML_RPG  -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-window -lsfml-system 
