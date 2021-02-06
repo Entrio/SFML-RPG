@@ -6,8 +6,8 @@
 
 //region Constructors / Destructors
 
-State::State() {
-
+State::State(sf::RenderWindow *window) {
+    this->window = window;
 }
 
 State::~State() {
@@ -15,4 +15,7 @@ State::~State() {
 }
 
 
+//endregion
+
+//region Methods
 //endregion

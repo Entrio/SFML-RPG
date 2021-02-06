@@ -5,7 +5,7 @@
 #ifndef SFML_RPG_GAME_H
 #define SFML_RPG_GAME_H
 
-#include "State.h"
+#include "GameState.h"
 
 class Game {
 
@@ -19,11 +19,15 @@ private:
     sf::Clock dtClock;
     float deltaTime;
 
+    std::stack<State *> states;
+
     //endregion
 
     //region Initialization
 
     void InitializeWindow();
+
+    void InitializeStates();
 
     //endregion
 

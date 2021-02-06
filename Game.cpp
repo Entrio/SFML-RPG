@@ -32,16 +32,26 @@ void Game::InitializeWindow() {
 
 }
 
+void Game::InitializeStates() {
+    this->states.push(new GameState(this->window));
+}
+
 //endregion
 
 
 //region Constructors / Destructors
 Game::Game() {
     this->InitializeWindow();
+    this->InitializeStates();
 }
 
 Game::~Game() {
     delete this->window;
+
+    while (!this->states.empty()) {
+        delete this->states.top();
+        this->states.pop();
+    }
 }
 
 //endregion
@@ -63,6 +73,10 @@ void Game::updateDeltaTime() {
 
 void Game::update() {
     this->updateSFMLEvents();
+
+    if (!this->states.empty()) {
+        this->states.top()->update(this->deltaTime);
+    }
 }
 
 void Game::render() {
@@ -70,6 +84,9 @@ void Game::render() {
     this->window->clear();
 
     // Draw the game
+    if (!this->states.empty()) {
+        this->states.top()->render(this->window);
+    }
 
     this->window->display();
 
@@ -82,6 +99,8 @@ void Game::run() {
         this->render();
     }
 }
+
+
 
 
 

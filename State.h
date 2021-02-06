@@ -11,6 +11,8 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <stack>
+#include <map>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Texture.hpp>
@@ -21,6 +23,7 @@ private:
 
     //region Variables
 
+    sf::RenderWindow *window;
     std::vector<sf::Texture *> textures;
 
     //endregion
@@ -29,13 +32,15 @@ private:
     //endregion
 
 public:
-    State();
+    State(sf::RenderWindow *window);
 
     virtual ~State();
 
-    virtual void update() = 0;
+    virtual void endState() = 0;
 
-    virtual void render() = 0;
+    virtual void update(const float& deltaTime) = 0;
+
+    virtual void render(sf::RenderTarget *target = nullptr) = 0;
 
 };
 
