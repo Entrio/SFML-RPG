@@ -12,6 +12,7 @@
 #define SFML_RPG_MAINMENUSTATE_H
 
 #include "State.h"
+#include "UI/Button.h"
 
 class MainMenuState : public State {
 
@@ -21,6 +22,8 @@ private:
 
     sf::RectangleShape background;
     sf::Font font;
+
+    Button *testButton;
 
     //endregion
 

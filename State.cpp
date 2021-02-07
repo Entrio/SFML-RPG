@@ -16,13 +16,13 @@ State::~State() {
 
 }
 
-const bool &State::getEnd() const {
-    return this->wantsToEndState;
-}
-
 //endregion
 
 //region Methods
+
+const bool &State::getEnd() const {
+    return this->wantsToEndState;
+}
 
 void State::checkForEnd() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds["Terminate"]))) {
