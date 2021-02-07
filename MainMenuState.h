@@ -20,12 +20,14 @@ private:
     //region Private variables
 
     sf::RectangleShape background;
+    sf::Font font;
 
     //endregion
 
     //region Private functions
 
     void stateKeyBinds();
+    void InitializeFonts();
 
     //endregion
 

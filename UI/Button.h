@@ -11,7 +11,34 @@
 
 
 class Button {
+private:
 
+    //region Private variables
+    //endregion
+
+    //region Private functions
+    //endregion
+
+protected:
+
+    //region Protected variables
+    //endregion
+
+    //region Protected functions
+    //endregion
+
+public:
+
+    //region Constructor / Destruct
+    Button();
+    ~Button();
+    //endregion
+
+    //region Public variables
+    //endregion
+
+    //region Public functions
+    //endregion
 };
 
 

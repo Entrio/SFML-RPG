@@ -7,6 +7,7 @@
 
 #include "GameState.h"
 #include "MainMenuState.h"
+#include "UI/Button.h"
 
 class Game {
 

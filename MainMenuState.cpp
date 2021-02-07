@@ -7,6 +7,7 @@
 MainMenuState::MainMenuState(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys) : State(window,
                                                                                                           supportedKeys) {
     this->stateKeyBinds();
+    this->LoadAssets();
     this->background.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));
     this->background.setFillColor(sf::Color(100, 149, 237));        // Good ol cornflower blue
 }
@@ -25,6 +26,7 @@ void MainMenuState::updateInput(const float &deltaTime) {
 }
 
 void MainMenuState::update(const float &deltaTime) {
+    this->updateMousePosition();
     this->updateInput(deltaTime);
 }
 
@@ -45,4 +47,10 @@ void MainMenuState::stateKeyBinds() {
     this->keyBinds["MOVE_RIGHT"] = this->supportedKeys->at("D");
     this->keyBinds["MOVE_DOWN"] = this->supportedKeys->at("S");
     this->keyBinds["MOVE_UP"] = this->supportedKeys->at("W");
+}
+
+void MainMenuState::InitializeFonts() {
+    if (!this->font.loadFromFile("assets/fonts/slkscr.ttf")) {
+        throw "Failed to load main menu fonts";
+    }
 }

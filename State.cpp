@@ -20,13 +20,24 @@ const bool &State::getEnd() const {
     return this->wantsToEndState;
 }
 
+//endregion
+
+//region Methods
+
 void State::checkForEnd() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds["Terminate"]))) {
         this->wantsToEndState = true;
     }
 }
 
-//endregion
+void State::updateMousePosition() {
+    this->mousePosScreen = sf::Mouse::getPosition();
+    this->mousePosWindow = sf::Mouse::getPosition(*this->window);
+    this->mousePosView = this->window->mapPixelToCoords(sf::Mouse::getPosition(*this->window));
+}
 
-//region Methods
+void State::LoadAssets() {
+    this->InitializeFonts();
+}
+
 //endregion
