@@ -16,21 +16,7 @@ Entity::Entity() {
 Entity::~Entity() = default;
 
 void Entity::update(const float &deltaTime) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        this->move(deltaTime, -1.f, 0.f);
-    }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        this->move(deltaTime, 1.f, 0.f);
-    }
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-        this->move(deltaTime, 0.f, -1.f);
-    }
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-        this->move(deltaTime, 0.f, 1.f);
-    }
 }
 
 void Entity::move(const float &deltaTime, float dirX, float dirY) {

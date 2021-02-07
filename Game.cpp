@@ -33,7 +33,15 @@ void Game::InitializeWindow() {
 }
 
 void Game::InitializeStates() {
-    this->states.push(new GameState(this->window));
+    this->states.push(new GameState(this->window, &this->supportedKeys));
+}
+
+void Game::InitializeKeys() {
+    this->supportedKeys.emplace("Escape", sf::Keyboard::Key::Escape);
+    this->supportedKeys.emplace("A", sf::Keyboard::Key::A);
+    this->supportedKeys.emplace("D", sf::Keyboard::Key::D);
+    this->supportedKeys.emplace("W", sf::Keyboard::Key::W);
+    this->supportedKeys.emplace("S", sf::Keyboard::Key::S);
 }
 
 //endregion
@@ -42,6 +50,7 @@ void Game::InitializeStates() {
 //region Constructors / Destructors
 Game::Game() {
     this->InitializeWindow();
+    this->InitializeKeys();
     this->InitializeStates();
 }
 

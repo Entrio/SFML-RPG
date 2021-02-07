@@ -11,15 +11,17 @@ class State {
 
 protected:
     sf::RenderWindow *window;
-    std::vector<sf::Texture *> textures;
-    bool wantsToEndState;
+    std::map<std::string, int> *supportedKeys;
+    std::map<std::string, int> keyBinds;        // State specific key binds
+
+    virtual void stateKeyBinds() = 0;           // Each state has to define their own keys
 
 private:
 
     //region Variables
 
-
-
+    std::vector<sf::Texture *> textures;
+    bool wantsToEndState;
 
     //endregion
 
@@ -27,7 +29,7 @@ private:
     //endregion
 
 public:
-    State(sf::RenderWindow *window);
+    State(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys);
 
     virtual ~State();
 

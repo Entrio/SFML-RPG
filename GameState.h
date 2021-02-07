@@ -12,8 +12,14 @@ class GameState : public State {
 private:
     Entity player;
 
+    //region Functions
+
+    void stateKeyBinds();
+
+    //endregion
+
 public:
-    GameState(sf::RenderWindow *window);
+    GameState(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys);
 
     virtual ~GameState();
 

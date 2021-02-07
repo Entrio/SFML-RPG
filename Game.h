@@ -21,6 +21,8 @@ private:
 
     std::stack<State *> states;
 
+    std::map<std::string, int> supportedKeys;
+
     //endregion
 
     //region Initialization
@@ -28,6 +30,8 @@ private:
     void InitializeWindow();
 
     void InitializeStates();
+
+    void InitializeKeys();
 
     //endregion
 
