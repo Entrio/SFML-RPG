@@ -41,11 +41,11 @@ public:
 
     //region Functions
 
-    virtual void update(const float &deltaTime) = 0;
+    virtual void update(const float &deltaTime);
 
-    virtual void render(sf::RenderTarget *target) = 0;
+    virtual void render(sf::RenderTarget *target);
 
-    virtual void move(const float &deltaTime, float x, float y) = 0;
+    virtual void move(const float &deltaTime, float x, float y);
 
     //endregion
 };
