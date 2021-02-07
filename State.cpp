@@ -21,7 +21,7 @@ const bool &State::getEnd() const {
 }
 
 void State::checkForEnd() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds["Terminate"]))) {
         this->wantsToEndState = true;
     }
 }

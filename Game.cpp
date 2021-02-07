@@ -37,11 +37,29 @@ void Game::InitializeStates() {
 }
 
 void Game::InitializeKeys() {
-    this->supportedKeys.emplace("Escape", sf::Keyboard::Key::Escape);
-    this->supportedKeys.emplace("A", sf::Keyboard::Key::A);
-    this->supportedKeys.emplace("D", sf::Keyboard::Key::D);
-    this->supportedKeys.emplace("W", sf::Keyboard::Key::W);
-    this->supportedKeys.emplace("S", sf::Keyboard::Key::S);
+
+    // Load keyboard configuration
+    /**
+    std::ifstream ifs("keyboard.ini");
+
+    if (ifs.is_open()) {
+        std::string key = "";
+        int keyValue = 0;
+
+        while (ifs >> key >> keyValue) {
+            this->supportedKeys[key] = keyValue;
+        }
+        ifs.close();
+    }
+    */
+
+    this->supportedKeys["Escape"] = sf::Keyboard::Key::Escape;
+    this->supportedKeys["A"] = sf::Keyboard::Key::A;
+    this->supportedKeys["D"] = sf::Keyboard::Key::D;
+    this->supportedKeys["W"] = sf::Keyboard::Key::W;
+    this->supportedKeys["S"] = sf::Keyboard::Key::S;
+    this->supportedKeys["X"] = sf::Keyboard::Key::X;
+
 }
 
 //endregion
