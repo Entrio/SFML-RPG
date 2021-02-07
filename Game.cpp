@@ -33,7 +33,7 @@ void Game::InitializeWindow() {
 }
 
 void Game::InitializeStates() {
-    this->states.push(new GameState(this->window, &this->supportedKeys));
+    this->states.push(new MainMenuState(this->window, &this->supportedKeys));
 }
 
 void Game::InitializeKeys() {
@@ -59,6 +59,9 @@ void Game::InitializeKeys() {
     this->supportedKeys["W"] = sf::Keyboard::Key::W;
     this->supportedKeys["S"] = sf::Keyboard::Key::S;
     this->supportedKeys["X"] = sf::Keyboard::Key::X;
+    this->supportedKeys["UpArrow"] = sf::Keyboard::Key::Up;
+    this->supportedKeys["DownArrow"] = sf::Keyboard::Key::Down;
+    this->supportedKeys["Select"] = sf::Keyboard::Key::Enter;
 
 }
 
