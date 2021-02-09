@@ -23,29 +23,43 @@ class Entity {
  */
 protected:
     //region Variables
+
+    // Debug entity box
     sf::RectangleShape shape;
+
+    /**
+     * NB: The reason these are pointers, is because a texture/sprite that will be assigned to this
+     * entity *SHOULD* have already been loaded somewhere prior.
+     */
+    sf::Sprite *sprite;
+    sf::Texture *texture;
+
     float movementSpeed;
     //endregion
 
 private:
 
     //region Functions
+
+    void initialize();
+
     //endregion
 
 public:
     //region Constructor / Destructor
     Entity();
-
     virtual ~Entity();
     //endregion
 
     //region Functions
 
     virtual void update(const float &deltaTime);
-
+    virtual void move(const float &deltaTime, float x, float y);
     virtual void render(sf::RenderTarget *target);
 
-    virtual void move(const float &deltaTime, float x, float y);
+    //region Component Functions
+    void createSprite(sf::Texture *texture);
+    //endregion
 
     //endregion
 };
