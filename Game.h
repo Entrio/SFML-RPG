@@ -17,22 +17,21 @@ private:
 
     sf::RenderWindow *window;
     sf::Event sfEvent;
-
     sf::Clock dtClock;
     float deltaTime;
-
     std::stack<State *> states;
-
     std::map<std::string, int> supportedKeys;
+    std::vector<sf::VideoMode> videoModes;
+    sf::ContextSettings windowContextSettings;
+    bool isFullscreen = false;
+    bool isVerticalSync = false;
 
     //endregion
 
     //region Initialization
 
     void InitializeWindow();
-
     void InitializeStates();
-
     void InitializeKeys();
 
     //endregion

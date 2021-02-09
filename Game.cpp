@@ -8,28 +8,39 @@
 
 void Game::InitializeWindow() {
 
+    this->videoModes = sf::VideoMode::getFullscreenModes();
+
     /* Load the config file */
     std::ifstream ifs("game.ini");
 
     /* Set default values that will be changed via the config file */
     std::string title = "SFML Window";
-    sf::VideoMode windowsBounds(800, 600);
+    sf::VideoMode windowsBounds = sf::VideoMode::getDesktopMode();
     unsigned int frameRateLimit = 60;
-    bool isVerticalSync = false;
+    unsigned aa_level = 0;
 
     if (ifs.is_open()) {
         std::getline(ifs, title);
         ifs >> windowsBounds.width >> windowsBounds.height;     // Read the width Height
+        ifs >> this->isFullscreen;
         ifs >> frameRateLimit;
-        ifs >> isVerticalSync;
+        ifs >> this->isVerticalSync;
+        ifs >> aa_level;
 
         ifs.close();
     }
 
-    this->window = new sf::RenderWindow(windowsBounds, title);
+    this->windowContextSettings.antialiasingLevel = aa_level;
+
+    if (this->isFullscreen) {
+        this->window = new sf::RenderWindow(windowsBounds, title, sf::Style::Fullscreen, this->windowContextSettings);
+    } else {
+        this->window = new sf::RenderWindow(windowsBounds, title, sf::Style::Titlebar | sf::Style::Close,
+                                            this->windowContextSettings);
+    }
+
     this->window->setFramerateLimit(frameRateLimit);
     this->window->setVerticalSyncEnabled(isVerticalSync);
-
 }
 
 void Game::InitializeStates() {
