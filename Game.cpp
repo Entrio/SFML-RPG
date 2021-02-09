@@ -37,6 +37,10 @@ void Game::InitializeWindow() {
     } else {
         this->window = new sf::RenderWindow(windowsBounds, title, sf::Style::Titlebar | sf::Style::Close,
                                             this->windowContextSettings);
+        this->window->setPosition(sf::Vector2i(
+                (sf::VideoMode::getDesktopMode().width / 2) - (this->window->getSize().x / 2),
+                (sf::VideoMode::getDesktopMode().height / 2) - (this->window->getSize().y / 2)
+        ));
     }
 
     this->window->setFramerateLimit(frameRateLimit);

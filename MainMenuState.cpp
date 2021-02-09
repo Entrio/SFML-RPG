@@ -72,7 +72,9 @@ void MainMenuState::render(sf::RenderTarget *target) {
  * Initialize GameState key bindings. These are only available for this state
  */
 void MainMenuState::stateKeyBinds() {
-    this->keyBinds["Terminate"] = this->supportedKeys->at("Escape");
+    // If we remove terminate from keybinds, it shouldnt get triggered in parent state, hence not exiting the app
+    //this->keyBinds["Terminate"] = this->supportedKeys->at("Escape");
+
     this->keyBinds["DEBUG"] = this->supportedKeys->at("F1");
 
     this->keyBinds["MOVE_LEFT"] = this->supportedKeys->at("A");
@@ -93,7 +95,7 @@ void MainMenuState::SetupButtons() {
     );
 
     this->buttons["EXIT"] = new Button(
-            1000, 660, 250, 30, "Exit", 15, &this->font
+            1100, 660, 150, 29, "Exit", 15, &this->font, sf::Color(0, 0, 240, 120)
     );
 }
 void MainMenuState::InitializeVariables() {
