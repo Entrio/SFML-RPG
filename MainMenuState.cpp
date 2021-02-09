@@ -3,9 +3,11 @@
 //
 
 #include "MainMenuState.h"
+#include "GameState.h"
 
-MainMenuState::MainMenuState(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys) : State(window,
-                                                                                                          supportedKeys) {
+MainMenuState::MainMenuState(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys,
+                             std::stack<State *> *states) : State(window,
+                                                                  supportedKeys, states) {
     this->stateKeyBinds();
     this->LoadAssets();
     this->SetupButtons();
@@ -41,6 +43,10 @@ void MainMenuState::update(const float &deltaTime) {
 
     if (this->buttons["EXIT"]->IsPressed()) {
         this->endState();
+    }
+
+    if (this->buttons["PLAY"]->IsPressed()) {
+        this->states->push(new GameState(this->window, this->supportedKeys, this->states));
     }
 }
 

@@ -6,7 +6,8 @@
 
 //region Constructors / Destructors
 
-State::State(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys) {
+State::State(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys, std::stack<State *> *states) {
+    this->states = states;
     this->window = window;
     this->supportedKeys = supportedKeys;
     this->wantsToEndState = false;

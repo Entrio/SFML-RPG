@@ -49,7 +49,7 @@ public:
 
     //region Constructor / Destructor
 
-    MainMenuState(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys);
+    MainMenuState(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys, std::stack<State *> *states);
 
     virtual ~MainMenuState();
 
