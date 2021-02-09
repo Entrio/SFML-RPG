@@ -38,6 +38,7 @@ void State::updateMousePosition() {
 
 void State::LoadAssets() {
     this->InitializeFonts();
+
 }
 
 //endregion

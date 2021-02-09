@@ -23,7 +23,7 @@ private:
     sf::RectangleShape background;
     sf::Font font;
 
-    Button *testButton;
+    std::map<std::string, Button*> buttons;
 
     //endregion
 
@@ -31,6 +31,7 @@ private:
 
     void stateKeyBinds();
     void InitializeFonts();
+    void SetupButtons();
 
     //endregion
 

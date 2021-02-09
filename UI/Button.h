@@ -57,7 +57,7 @@ public:
            const std::string &text,
            unsigned int fontSize,
            sf::Font *font,
-           sf::Color idleColour = sf::Color::Green,
+           sf::Color idleColour = sf::Color::Blue,
            sf::Color hoverColour = sf::Color::Red,
            sf::Color activeColour = sf::Color::Magenta
     );

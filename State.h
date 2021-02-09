@@ -18,6 +18,8 @@ protected:
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;
 
+    bool wantsToEndState;
+
     virtual void stateKeyBinds() = 0;           // Each state has to define their own keys
     virtual void InitializeFonts() = 0;
     virtual void LoadAssets();
@@ -27,7 +29,7 @@ private:
     //region Variables
 
     std::vector<sf::Texture *> textures;
-    bool wantsToEndState;
+
 
     //endregion
 
