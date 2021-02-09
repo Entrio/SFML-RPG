@@ -19,6 +19,11 @@ protected:
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;
 
+    sf::Text mousePosText;
+    bool drawDebug = false;
+    sf::Font debugFont;
+    std::stringstream ss;
+
     bool wantsToEndState;
 
     virtual void stateKeyBinds() = 0;           // Each state has to define their own keys

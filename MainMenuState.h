@@ -20,18 +20,21 @@ private:
 
     //region Private variables
 
+    sf::Texture backgroundTexture;
     sf::RectangleShape background;
     sf::Font font;
 
-    std::map<std::string, Button*> buttons;
+    std::map<std::string, Button *> buttons;
 
     //endregion
 
     //region Private functions
 
+    void InitializeVariables();
     void stateKeyBinds();
     void InitializeFonts();
     void SetupButtons();
+    void setupBackground();
 
     //endregion
 

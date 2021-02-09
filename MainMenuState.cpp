@@ -5,16 +5,20 @@
 #include "MainMenuState.h"
 #include "GameState.h"
 
-MainMenuState::MainMenuState(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys,
-                             std::stack<State *> *states) : State(window,
-                                                                  supportedKeys, states) {
+MainMenuState::MainMenuState(
+        sf::RenderWindow *window,
+        std::map<std::string, int> *supportedKeys,
+        std::stack<State *> *states
+) : State(
+        window,
+        supportedKeys,
+        states
+) {
+    this->InitializeVariables();
+    this->setupBackground();
     this->stateKeyBinds();
     this->LoadAssets();
     this->SetupButtons();
-
-
-    this->background.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));
-    this->background.setFillColor(sf::Color(100, 149, 237));        // Good ol cornflower blue
 }
 
 MainMenuState::~MainMenuState() {
@@ -61,6 +65,7 @@ void MainMenuState::render(sf::RenderTarget *target) {
     }
 
     //this->testButton->render(target);
+    State::render(target);
 }
 
 /**
@@ -68,6 +73,7 @@ void MainMenuState::render(sf::RenderTarget *target) {
  */
 void MainMenuState::stateKeyBinds() {
     this->keyBinds["Terminate"] = this->supportedKeys->at("Escape");
+    this->keyBinds["DEBUG"] = this->supportedKeys->at("F1");
 
     this->keyBinds["MOVE_LEFT"] = this->supportedKeys->at("A");
     this->keyBinds["MOVE_RIGHT"] = this->supportedKeys->at("D");
@@ -83,10 +89,25 @@ void MainMenuState::InitializeFonts() {
 
 void MainMenuState::SetupButtons() {
     this->buttons["PLAY"] = new Button(
-            10, 10, 250, 25, "Play Game", 13, &this->font
+            10, 10, 250, 30, "Play Game", 15, &this->font
     );
 
     this->buttons["EXIT"] = new Button(
-            10, 120, 250, 25, "Exit", 13, &this->font
+            1000, 660, 250, 30, "Exit", 15, &this->font
     );
+}
+void MainMenuState::InitializeVariables() {
+
+}
+void MainMenuState::setupBackground() {
+    this->background.setSize(sf::Vector2f(this->window->getSize().x, this->window->getSize().y));
+
+    if (!this->backgroundTexture.loadFromFile("assets/images/bg.jpg")) {
+        // Failed to load the background image
+        std::cerr << "ERROR::NON_CRITICAL::MAINMENUSTATE::BACKGROUND_TEXTURE_NOT_FOUND" << std::endl;
+        this->background.setFillColor(sf::Color(100, 149, 237));        // Good ol cornflower blue
+    } else {
+        // If its loaded, set the background to loaded texture
+        this->background.setTexture(&this->backgroundTexture);
+    }
 }

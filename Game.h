@@ -15,10 +15,10 @@ private:
 
     //region Variables
 
-    sf::RenderWindow *window;
+    sf::RenderWindow *window = nullptr;
     sf::Event sfEvent;
     sf::Clock dtClock;
-    float deltaTime;
+    float deltaTime = 0.f;
     std::stack<State *> states;
     std::map<std::string, int> supportedKeys;
     std::vector<sf::VideoMode> videoModes;

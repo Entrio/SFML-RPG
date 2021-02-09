@@ -61,6 +61,9 @@ void Game::InitializeKeys() {
     this->supportedKeys["DownArrow"] = sf::Keyboard::Key::Down;
     this->supportedKeys["Select"] = sf::Keyboard::Key::Enter;
 
+
+    this->supportedKeys["F1"] = sf::Keyboard::Key::F1;
+
 }
 
 //endregion
