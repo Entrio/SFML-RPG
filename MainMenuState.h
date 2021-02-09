@@ -59,14 +59,9 @@ public:
     //endregion
 
     //region Public functions
-
-
-    void endState();
-
+    void onBeforeEndState();
     void updateInput(const float &deltaTime);
-
     void update(const float &deltaTime);
-
     void render(sf::RenderTarget *target = nullptr);
     //endregion
 

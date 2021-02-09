@@ -14,10 +14,6 @@ GameState::~GameState() {
 
 }
 
-void GameState::endState() {
-    std::cout << "GameState has ended \n\n";
-}
-
 void GameState::updateInput(const float &deltaTime) {
     this->checkForEnd(); // Inherited from State
 
@@ -84,6 +80,13 @@ void GameState::stateKeyBinds() {
 
 
 void GameState::InitializeFonts() {
+
+}
+
+/**
+ * This function is called just before the state is terminated
+ */
+void GameState::onBeforeEndState() {
 
 }
 

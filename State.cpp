@@ -14,7 +14,6 @@ State::State(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys
 }
 
 State::~State() {
-
 }
 
 //endregion
@@ -25,9 +24,14 @@ const bool &State::getEnd() const {
     return this->wantsToEndState;
 }
 
+void State::endState() {
+    this->onBeforeEndState();
+    this->wantsToEndState = true;
+}
+
 void State::checkForEnd() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds["Terminate"]))) {
-        this->wantsToEndState = true;
+        this->endState();
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds["DEBUG"]))) {

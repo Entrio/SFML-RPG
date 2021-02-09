@@ -27,11 +27,6 @@ MainMenuState::~MainMenuState() {
     }
 }
 
-void MainMenuState::endState() {
-    std::cout << "GameState has ended \n\n";
-    this->wantsToEndState = true;
-}
-
 void MainMenuState::updateInput(const float &deltaTime) {
     this->checkForEnd(); // Inherited from State
 
@@ -94,8 +89,12 @@ void MainMenuState::SetupButtons() {
             10, 10, 250, 30, "Play Game", 15, &this->font
     );
 
+    this->buttons["EDITOR"] = new Button(
+            1100, 615, 150, 30, "Editor", 15, &this->font, sf::Color(0, 0, 240, 120)
+    );
+
     this->buttons["EXIT"] = new Button(
-            1100, 660, 150, 29, "Exit", 15, &this->font, sf::Color(0, 0, 240, 120)
+            1100, 660, 150, 30, "Exit", 15, &this->font, sf::Color(0, 0, 240, 120)
     );
 }
 void MainMenuState::InitializeVariables() {
@@ -112,4 +111,11 @@ void MainMenuState::setupBackground() {
         // If its loaded, set the background to loaded texture
         this->background.setTexture(&this->backgroundTexture);
     }
+}
+
+/**
+ * This function is called just before the state is terminated
+ */
+void MainMenuState::onBeforeEndState() {
+
 }

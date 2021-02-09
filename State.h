@@ -29,6 +29,7 @@ protected:
     virtual void stateKeyBinds() = 0;           // Each state has to define their own keys
     virtual void InitializeFonts() = 0;
     virtual void LoadAssets();
+    virtual void onBeforeEndState() = 0;
 
 private:
 
@@ -50,7 +51,7 @@ public:
     virtual ~State();
     const bool &getEnd() const;
     virtual void checkForEnd();
-    virtual void endState() = 0;
+    void endState();
     virtual void updateMousePosition();
     virtual void updateInput(const float &dt) = 0;
     virtual void update(const float &deltaTime) = 0;

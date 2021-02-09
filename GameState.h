@@ -21,15 +21,10 @@ private:
 
 public:
     GameState(sf::RenderWindow *window, std::map<std::string, int> *supportedKeys, std::stack<State *> *states);
-
     virtual ~GameState();
-
-    void endState();
-
+    void onBeforeEndState();
     void updateInput(const float &deltaTime);
-
     void update(const float &deltaTime);
-
     void render(sf::RenderTarget *target = nullptr);
 };
 
