@@ -21,7 +21,7 @@ void Entity::initialize() {
     //this->shape.setSize(sf::Vector2f(50.f, 50.f));
     this->sprite = nullptr;
     this->texture = nullptr;
-    this->movementSpeed = 100.0f;
+    this->movementSpeed = 20.0f;
 }
 
 void Entity::update(const float &deltaTime) {
@@ -46,7 +46,13 @@ void Entity::render(sf::RenderTarget *target) {
 //region Component Functions
 void Entity::createSprite(sf::Texture *sTexture) {
     this->texture = sTexture;
-    this->sprite->setTexture(*this->texture);
+    this->sprite = new sf::Sprite(*this->texture);
+}
+
+void Entity::setPosition(const float x, const float y) {
+    if (this->sprite) {
+        this->sprite->setPosition(x, y);
+    }
 }
 
 //endregion

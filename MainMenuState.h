@@ -4,9 +4,7 @@
  *
  * Find me on github: https://github.com/Entrio
  *
- * Followed tutorial: https://www.youtube.com/watch?v=IdKZpv6xqdw&list=PL6xSOsbVA1ebkU66okpi-KViAO8_9DJKg
  */
-
 
 #ifndef SFML_RPG_MAINMENUSTATE_H
 #define SFML_RPG_MAINMENUSTATE_H
@@ -15,7 +13,6 @@
 #include "UI/Button.h"
 
 class MainMenuState : public State {
-
 private:
 
     //region Private variables
@@ -33,6 +30,7 @@ private:
     void InitializeVariables();
     void stateKeyBinds();
     void InitializeFonts();
+    void InitializeTextures();
     void SetupButtons();
     void setupBackground();
 

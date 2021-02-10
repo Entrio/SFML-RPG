@@ -25,7 +25,6 @@ const bool &State::getEnd() const {
 }
 
 void State::endState() {
-    this->onBeforeEndState();
     this->wantsToEndState = true;
 }
 
@@ -57,6 +56,7 @@ void State::LoadAssets() {
     if (!this->debugFont.loadFromFile("assets/fonts/slkscr.ttf")) {
         std::cerr << "ERROR::NON_CRITICAL::STATE::DEBUG_FONT_NOT_FOUND" << std::endl;
     } else {
+        std::cout << "State::LoadAssets" << std::endl;
         mousePosText.setFont(this->debugFont);
         mousePosText.setCharacterSize(15);
     }

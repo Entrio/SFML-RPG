@@ -10,12 +10,14 @@
 class GameState : public State {
 
 private:
-    Entity player;
+    Player *player;
 
     //region Functions
 
     void stateKeyBinds();
     void InitializeFonts();
+    void InitializeTextures();
+    void InitializePlayers();
 
     //endregion
 

@@ -119,3 +119,6 @@ void MainMenuState::setupBackground() {
 void MainMenuState::onBeforeEndState() {
 
 }
+void MainMenuState::InitializeTextures() {
+//TODO:
+}

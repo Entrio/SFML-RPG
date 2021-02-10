@@ -8,44 +8,12 @@ GameState::GameState(sf::RenderWindow *window, std::map<std::string, int> *suppo
         : State(window,
                 supportedKeys, states) {
     this->stateKeyBinds();
+    this->InitializeTextures();
+    this->InitializePlayers();
 }
 
 GameState::~GameState() {
-
-}
-
-void GameState::updateInput(const float &deltaTime) {
-    this->checkForEnd(); // Inherited from State
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_LEFT")))) {
-        this->player.move(deltaTime, -5.f, 0.f);
-    }
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_RIGHT")))) {
-        this->player.move(deltaTime, 5.f, 0.f);
-    }
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_UP")))) {
-        this->player.move(deltaTime, 0.f, -5.f);
-    }
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_DOWN")))) {
-        this->player.move(deltaTime, 0.f, 5.f);
-    }
-}
-
-void GameState::update(const float &deltaTime) {
-    this->updateMousePosition();
-    this->updateInput(deltaTime);
-    this->player.update(deltaTime);
-}
-
-void GameState::render(sf::RenderTarget *target) {
-
-    if (!target) {
-        target = this->window;
-    }
-    this->player.render(target);
+    delete this->player;
 }
 
 /**
@@ -78,16 +46,57 @@ void GameState::stateKeyBinds() {
      */
 }
 
+void GameState::updateInput(const float &deltaTime) {
+    this->checkForEnd(); // Inherited from State
 
-void GameState::InitializeFonts() {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_LEFT")))) {
+        this->player->move(deltaTime, -5.f, 0.f);
+    }
 
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_RIGHT")))) {
+        this->player->move(deltaTime, 5.f, 0.f);
+    }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_UP")))) {
+        this->player->move(deltaTime, 0.f, -5.f);
+    }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_DOWN")))) {
+        this->player->move(deltaTime, 0.f, 5.f);
+    }
 }
 
-/**
- * This function is called just before the state is terminated
- */
-void GameState::onBeforeEndState() {
+void GameState::update(const float &deltaTime) {
+    this->updateMousePosition();
+    this->updateInput(deltaTime);
+    this->player->update(deltaTime);
+}
 
+void GameState::render(sf::RenderTarget *target) {
+
+    if (!target) {
+        target = this->window;
+    }
+    this->player->render(target);
+}
+
+
+void GameState::InitializeFonts() {
+    std::cout << "InitializeFonts::GameState" << std::endl;
+}
+
+void GameState::InitializeTextures() {
+    std::cout << "InitializeTextures::GameState" << std::endl;
+
+    if (!this->textures["PLAYER_IDLE"].loadFromFile(
+            "assets/sprites/warrior spritesheet calciumtrice.png", sf::IntRect(0, 0, 32, 32)
+    )) {
+        std::cout << "GameState::InitializeTextures::loadFromFile" << std::endl;
+        throw "Failed to load player textures";
+    }
+}
+void GameState::InitializePlayers() {
+    this->player = new Player(0.f, 0.f, &this->textures["PLAYER_IDLE"]);
 }
 
 

@@ -5,7 +5,7 @@
 #ifndef SFML_RPG_STATE_H
 #define SFML_RPG_STATE_H
 
-#include "Entity.h"
+#include "Player.h"
 
 class State {
 
@@ -26,24 +26,18 @@ protected:
 
     bool wantsToEndState;
 
+    std::map<std::string, sf::Texture> textures;
+
     virtual void stateKeyBinds() = 0;           // Each state has to define their own keys
     virtual void InitializeFonts() = 0;
     virtual void LoadAssets();
-    virtual void onBeforeEndState() = 0;
 
 private:
 
     //region Variables
-
-    std::vector<sf::Texture *> textures;
-
-
     //endregion
 
     //region Functions
-
-
-
     //endregion
 
 public:

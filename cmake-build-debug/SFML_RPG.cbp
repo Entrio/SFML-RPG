@@ -106,6 +106,12 @@
 		<Unit filename="/home/alex/CLionProjects/SFML_RPG/MainMenuState.h">
 			<Option target="SFML_RPG"/>
 		</Unit>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Player.cpp">
+			<Option target="SFML_RPG"/>
+		</Unit>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Player.h">
+			<Option target="SFML_RPG"/>
+		</Unit>
 		<Unit filename="/home/alex/CLionProjects/SFML_RPG/State.cpp">
 			<Option target="SFML_RPG"/>
 		</Unit>

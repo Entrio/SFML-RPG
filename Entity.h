@@ -58,6 +58,7 @@ public:
     virtual void render(sf::RenderTarget *target);
 
     //region Component Functions
+    virtual void setPosition(const float x, const float y);
     void createSprite(sf::Texture *texture);
     //endregion
 
