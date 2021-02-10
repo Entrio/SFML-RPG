@@ -5,17 +5,7 @@
 #ifndef SFML_RPG_ENTITY_H
 #define SFML_RPG_ENTITY_H
 
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-#include <stack>
-#include <map>
-
-#include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Texture.hpp>
+#include "Components/Movement.h"
 
 class Entity {
 /**
@@ -34,7 +24,8 @@ protected:
     sf::Sprite *sprite;
     sf::Texture *texture;
 
-    float movementSpeed;
+    MovementComponent *movementComponent;
+
     //endregion
 
 private:
@@ -58,8 +49,9 @@ public:
     virtual void render(sf::RenderTarget *target);
 
     //region Component Functions
-    virtual void setPosition(const float x, const float y);
+    virtual void setPosition(float x, float y);
     void createSprite(sf::Texture *texture);
+    void createMovementComponent(float maxVelocity);
     //endregion
 
     //endregion

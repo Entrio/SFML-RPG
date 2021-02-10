@@ -10,18 +10,19 @@ Entity::Entity() {
 }
 
 Entity::~Entity() {
-    if (this->sprite)
-        delete this->sprite;
+    // Deleting nullptr has no effect
+    delete this->sprite;
+    delete this->movementComponent;
 };
 //endregion
 
 //region Functions
 
 void Entity::initialize() {
-    //this->shape.setSize(sf::Vector2f(50.f, 50.f));
     this->sprite = nullptr;
     this->texture = nullptr;
-    this->movementSpeed = 20.0f;
+
+    this->movementComponent = nullptr;
 }
 
 void Entity::update(const float &deltaTime) {
@@ -29,11 +30,9 @@ void Entity::update(const float &deltaTime) {
 }
 
 void Entity::move(const float &deltaTime, float dirX, float dirY) {
-    if (this->sprite) {
-        this->sprite->move(
-                dirX * this->movementSpeed * deltaTime,
-                dirY * this->movementSpeed * deltaTime
-        );
+    if (this->sprite && this->movementComponent) {
+        this->movementComponent->move(dirX, dirY);      // Sets teh velocity
+        this->sprite->move(this->movementComponent->getVelocity() * deltaTime);     // Uses velocity
     }
 }
 
@@ -53,6 +52,10 @@ void Entity::setPosition(const float x, const float y) {
     if (this->sprite) {
         this->sprite->setPosition(x, y);
     }
+}
+
+void Entity::createMovementComponent(float maxVelocity) {
+    this->movementComponent = new MovementComponent(maxVelocity);
 }
 
 //endregion

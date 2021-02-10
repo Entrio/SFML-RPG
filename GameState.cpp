@@ -35,6 +35,7 @@ void GameState::stateKeyBinds() {
 
     // Make sure that Escape is always the terminating key
     this->keyBinds["Terminate"] = this->supportedKeys->at("Escape");
+    this->keyBinds["DEBUG"] = this->supportedKeys->at("F1");
 
     // State key bindings
 
