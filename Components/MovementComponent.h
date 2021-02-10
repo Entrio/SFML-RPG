@@ -28,8 +28,9 @@ private:
 
     sf::Sprite &sprite;
 
+    sf::Vector2f velocity;
     float maxVelocity;
-    sf::Vector2f velocity, acceleration, deceleration;
+    float acceleration, deceleration;
 
     //endregion
 
@@ -48,7 +49,7 @@ public:
 
     //region Constructor / Destruct
 
-    MovementComponent(sf::Sprite &sprite, float maxVelocity);
+    MovementComponent(sf::Sprite &sprite, float maxVelocity, float acceleration, float deceleration);
     ~MovementComponent();
 
     //endregion

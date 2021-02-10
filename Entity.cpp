@@ -24,10 +24,12 @@ void Entity::initialize() {
 }
 
 void Entity::update(const float &deltaTime) {
-
+    if (this->movementComponent) {
+        this->movementComponent->update(deltaTime);
+    }
 }
 
-void Entity::move(const float &deltaTime, float dirX, float dirY) {
+void Entity::move(float dirX, float dirY, const float &deltaTime) {
     if (this->movementComponent) {
         this->movementComponent->move(dirX, dirY, deltaTime);
     }
@@ -47,8 +49,8 @@ void Entity::setPosition(const float x, const float y) {
     this->sprite.setPosition(x, y);
 }
 
-void Entity::createMovementComponent(float maxVelocity) {
-    this->movementComponent = new MovementComponent(this->sprite, maxVelocity);
+void Entity::createMovementComponent(float maxVelocity, const float acceleration, const float deceleration) {
+    this->movementComponent = new MovementComponent(this->sprite, maxVelocity, acceleration, deceleration);
 }
 
 //endregion

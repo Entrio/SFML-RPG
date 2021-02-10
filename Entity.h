@@ -45,13 +45,13 @@ public:
     //region Functions
 
     virtual void update(const float &deltaTime);
-    virtual void move(const float &deltaTime, float x, float y);
+    virtual void move(float x, float y, const float &deltaTime);
     virtual void render(sf::RenderTarget *target);
 
     //region Component Functions
     virtual void setPosition(float x, float y);
     void setTexture(sf::Texture &texture);
-    void createMovementComponent(float maxVelocity);
+    void createMovementComponent(float maxVelocity, float acceleration, float deceleration);
     //endregion
 
     //endregion

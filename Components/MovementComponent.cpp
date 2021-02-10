@@ -12,8 +12,13 @@
 
 MovementComponent::MovementComponent(
         sf::Sprite &sprite,
-        float maxVelocity
-) : sprite(sprite), maxVelocity(maxVelocity) {
+        float maxVelocity,
+        float acceleration,
+        float deceleration
+) : sprite(sprite),
+    maxVelocity(maxVelocity),
+    acceleration(acceleration),
+    deceleration(deceleration) {
 }
 
 MovementComponent::~MovementComponent() = default;
@@ -32,13 +37,46 @@ const sf::Vector2f &MovementComponent::getVelocity() const {
 
 void MovementComponent::update(const float &deltaTime) {
 
+    //Deceleration
+
+    if (this->velocity.x > 0.f) {
+        this->velocity.x -= deceleration;
+        if (this->velocity.x < 0.f) {
+            velocity.x = 0.f;
+        }
+    } else if (this->velocity.x < 0.f) {
+        this->velocity.x += deceleration;
+        if (this->velocity.x > 0.f) {
+            velocity.x = 0.f;
+        }
+    }
+
+    // Final move
+    this->sprite.move(this->velocity * deltaTime);
 }
 
 void MovementComponent::move(const float dirX, const float dirY, const float &deltaTime) {
-    this->velocity.x = this->maxVelocity * dirX;
-    this->velocity.y = this->maxVelocity * dirY;
 
-    this->sprite.move(this->velocity * deltaTime);
+    /**
+     * Accelerating a sprite until it reaches max velocity
+     */
+
+    // Acceleration
+    this->velocity.x += this->acceleration * dirX;
+
+    if (this->velocity.x > 0.f) { // going to the right
+        if (this->velocity.x > this->maxVelocity) {
+            // we are going as fast as we can already
+            this->velocity.x = maxVelocity;
+        }
+    } else if (this->velocity.x < 0.f) { // going to the left
+        if (this->velocity.x < -this->maxVelocity) {
+            // we are going as fast as we can already
+            this->velocity.x = -maxVelocity;
+        }
+    }
+
+    this->velocity.y = this->maxVelocity * dirY;
 }
 
 

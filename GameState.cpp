@@ -51,19 +51,19 @@ void GameState::updateInput(const float &deltaTime) {
     this->checkForEnd(); // Inherited from State
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_LEFT")))) {
-        this->player->move(deltaTime, -5.f, 0.f);
+        this->player->move(-5.f, 0.f, deltaTime);
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_RIGHT")))) {
-        this->player->move(deltaTime, 5.f, 0.f);
+        this->player->move(5.f, 0.f, deltaTime);
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_UP")))) {
-        this->player->move(deltaTime, 0.f, -5.f);
+        this->player->move(0.f, -5.f, deltaTime);
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keyBinds.at("MOVE_DOWN")))) {
-        this->player->move(deltaTime, 0.f, 5.f);
+        this->player->move(0.f, 5.f, deltaTime);
     }
 }
 
