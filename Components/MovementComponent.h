@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef SFML_RPG_MOVEMENT_H
-#define SFML_RPG_MOVEMENT_H
+#ifndef SFML_RPG_MOVEMENTCOMPONENT_H
+#define SFML_RPG_MOVEMENTCOMPONENT_H
 
 #include <fstream>
 #include <sstream>
@@ -25,6 +25,8 @@ class MovementComponent {
 private:
 
     //region Private variables
+
+    sf::Sprite &sprite;
 
     float maxVelocity;
     sf::Vector2f velocity, acceleration, deceleration;
@@ -46,7 +48,7 @@ public:
 
     //region Constructor / Destruct
 
-    MovementComponent(float maxVelocity);
+    MovementComponent(sf::Sprite &sprite, float maxVelocity);
     ~MovementComponent();
 
     //endregion
@@ -65,11 +67,11 @@ public:
     //region Public functions
 
     void update(const float &deltaTime);
-    void move(float dirX, float dirY);
+    void move(float dirX, float dirY, const float &deltaTime);
 
     //endregion
 
 };
 
 
-#endif //SFML_RPG_MOVEMENT_H
+#endif //SFML_RPG_MOVEMENTCOMPONENT_H

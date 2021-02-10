@@ -6,12 +6,14 @@
  *
  */
 
-#include "Movement.h"
+#include "MovementComponent.h"
 
 //region Constructor / Destruct
 
-MovementComponent::MovementComponent(float maxVelocity) {
-    this->maxVelocity = maxVelocity;
+MovementComponent::MovementComponent(
+        sf::Sprite &sprite,
+        float maxVelocity
+) : sprite(sprite), maxVelocity(maxVelocity) {
 }
 
 MovementComponent::~MovementComponent() = default;
@@ -32,9 +34,11 @@ void MovementComponent::update(const float &deltaTime) {
 
 }
 
-void MovementComponent::move(const float dirX, const float dirY) {
+void MovementComponent::move(const float dirX, const float dirY, const float &deltaTime) {
     this->velocity.x = this->maxVelocity * dirX;
     this->velocity.y = this->maxVelocity * dirY;
+
+    this->sprite.move(this->velocity * deltaTime);
 }
 
 

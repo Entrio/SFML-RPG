@@ -18,7 +18,7 @@ private:
     void initComponents();
 protected:
 public:
-    Player(float x, float y, sf::Texture *texture);
+    Player(float x, float y, sf::Texture &texture);
     ~Player();
 };
 

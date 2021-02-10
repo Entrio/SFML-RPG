@@ -5,7 +5,7 @@
 #ifndef SFML_RPG_ENTITY_H
 #define SFML_RPG_ENTITY_H
 
-#include "Components/Movement.h"
+#include "Components/MovementComponent.h"
 
 class Entity {
 /**
@@ -21,7 +21,7 @@ protected:
      * NB: The reason these are pointers, is because a texture/sprite that will be assigned to this
      * entity *SHOULD* have already been loaded somewhere prior.
      */
-    sf::Sprite *sprite;
+    sf::Sprite sprite;
     sf::Texture *texture;
 
     MovementComponent *movementComponent;
@@ -50,7 +50,7 @@ public:
 
     //region Component Functions
     virtual void setPosition(float x, float y);
-    void createSprite(sf::Texture *texture);
+    void setTexture(sf::Texture &texture);
     void createMovementComponent(float maxVelocity);
     //endregion
 
