@@ -85,12 +85,15 @@ void Button::update(const sf::Vector2f &mousePos) {
         switch (this->state) {
             case BTN_PRESSED:
                 this->shape.setFillColor(this->activeColour);
+                this->text.setFillColor(this->textActiveColour);
                 break;
             case BTN_HOVER:
                 this->shape.setFillColor(this->hoverColour);
+                this->text.setFillColor(this->textHoverColour);
                 break;
             default:
                 this->shape.setFillColor(this->idleColour);
+                this->text.setFillColor(this->textIdleColour);
                 break;
         }
     }
