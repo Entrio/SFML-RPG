@@ -39,15 +39,57 @@ void MovementComponent::update(const float &deltaTime) {
 
     //Deceleration
 
+    /**
+     * X positive and negative velocity checks
+     */
     if (this->velocity.x > 0.f) {
+
+        if (this->velocity.x > this->maxVelocity) {
+            // we are going as fast as we can already
+            this->velocity.x = maxVelocity;
+        }
+
         this->velocity.x -= deceleration;
         if (this->velocity.x < 0.f) {
             velocity.x = 0.f;
         }
     } else if (this->velocity.x < 0.f) {
+
+        if (this->velocity.x < -this->maxVelocity) {
+            // we are going as fast as we can already
+            this->velocity.x = -maxVelocity;
+        }
+
         this->velocity.x += deceleration;
         if (this->velocity.x > 0.f) {
             velocity.x = 0.f;
+        }
+    }
+
+    /**
+     * Y Velocity check
+     */
+    if (this->velocity.y > 0.f) {
+
+        if (this->velocity.y > this->maxVelocity) {
+            // we are going as fast as we can already
+            this->velocity.y = maxVelocity;
+        }
+
+        this->velocity.y -= deceleration;
+        if (this->velocity.y < 0.f) {
+            velocity.y = 0.f;
+        }
+    } else if (this->velocity.y < 0.f) {
+
+        if (this->velocity.y < -this->maxVelocity) {
+            // we are going as fast as we can already
+            this->velocity.y = -maxVelocity;
+        }
+
+        this->velocity.y += deceleration;
+        if (this->velocity.y > 0.f) {
+            velocity.y = 0.f;
         }
     }
 
@@ -57,25 +99,8 @@ void MovementComponent::update(const float &deltaTime) {
 
 void MovementComponent::move(const float dirX, const float dirY, const float &deltaTime) {
 
-    /**
-     * Accelerating a sprite until it reaches max velocity
-     */
-
     // Acceleration
     this->velocity.x += this->acceleration * dirX;
-
-    if (this->velocity.x > 0.f) { // going to the right
-        if (this->velocity.x > this->maxVelocity) {
-            // we are going as fast as we can already
-            this->velocity.x = maxVelocity;
-        }
-    } else if (this->velocity.x < 0.f) { // going to the left
-        if (this->velocity.x < -this->maxVelocity) {
-            // we are going as fast as we can already
-            this->velocity.x = -maxVelocity;
-        }
-    }
-
     this->velocity.y = this->maxVelocity * dirY;
 }
 
