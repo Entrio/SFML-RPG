@@ -16,12 +16,21 @@ bool Button::IsPressed() const {
 
 //endregion
 
-Button::Button(float x, float y, float width, float height,
-               const std::string &text, unsigned int fontSize, sf::Font *font,
+Button::Button(float x, float y, float width, float height, const std::string &text, unsigned int fontSize,
+               sf::Font *font,
+               sf::Color textIdleColour,
+               sf::Color textHoverColour,
+               sf::Color textActiveColour,
                sf::Color idleColour,
                sf::Color hoverColour,
                sf::Color activeColour
-) {
+) :
+        idleColour(idleColour),
+        hoverColour(hoverColour),
+        activeColour(activeColour),
+        textIdleColour(textIdleColour),
+        textActiveColour(textActiveColour),
+        textHoverColour(textHoverColour) {
 
     this->state = BTN_IDLE;
 
@@ -40,11 +49,7 @@ Button::Button(float x, float y, float width, float height,
             this->text.getGlobalBounds().height
     );
 
-    this->text.setFillColor(sf::Color::White);
-    this->idleColour = idleColour;
-    this->hoverColour = hoverColour;
-    this->activeColour = activeColour;
-
+    this->text.setFillColor(this->textIdleColour);
     this->shape.setFillColor(this->idleColour);
 }
 

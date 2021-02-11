@@ -90,11 +90,13 @@ void MainMenuState::SetupButtons() {
     );
 
     this->buttons["EDITOR"] = new Button(
-            1100, 615, 150, 30, "Editor", 15, &this->font, sf::Color(0, 0, 240, 120)
+            1100, 615, 150, 30, "Editor", 15, &this->font, sf::Color::White, sf::Color::White, sf::Color::White,
+            sf::Color(0, 0, 240, 120)
     );
 
     this->buttons["EXIT"] = new Button(
-            1100, 660, 150, 30, "Exit", 15, &this->font, sf::Color(0, 0, 240, 120)
+            1100, 660, 150, 30, "Exit", 15, &this->font, sf::Color::White, sf::Color::White, sf::Color::White,
+            sf::Color(0, 0, 240, 120)
     );
 }
 void MainMenuState::InitializeVariables() {

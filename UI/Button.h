@@ -33,6 +33,7 @@ private:
     sf::Text text;
 
     sf::Color idleColour, hoverColour, activeColour;
+    sf::Color textIdleColour, textHoverColour, textActiveColour;
 
     //endregion
 
@@ -57,6 +58,9 @@ public:
            const std::string &text,
            unsigned int fontSize,
            sf::Font *font,
+           sf::Color textIdleColour = sf::Color::White,
+           sf::Color textHoverColour = sf::Color::White,
+           sf::Color textActiveColour = sf::Color::White,
            sf::Color idleColour = sf::Color::Blue,
            sf::Color hoverColour = sf::Color::Red,
            sf::Color activeColour = sf::Color::Magenta
