@@ -12,6 +12,7 @@ Entity::Entity() {
 Entity::~Entity() {
     // Deleting nullptr has no effect
     delete this->movementComponent;
+    delete this->animationComponent;
 };
 //endregion
 
@@ -40,6 +41,7 @@ void Entity::render(sf::RenderTarget *target) {
 }
 
 //region Component Functions
+
 void Entity::setTexture(sf::Texture &sTexture) {
     this->texture = &sTexture;
     this->sprite.setTexture(sTexture);
@@ -51,6 +53,10 @@ void Entity::setPosition(const float x, const float y) {
 
 void Entity::createMovementComponent(float maxVelocity, const float acceleration, const float deceleration) {
     this->movementComponent = new MovementComponent(this->sprite, maxVelocity, acceleration, deceleration);
+}
+
+void Entity::createAnimationComponent(sf::Texture &spriteSheet) {
+    this->animationComponent = new AnimationComponent(this->sprite, spriteSheet);
 }
 
 //endregion

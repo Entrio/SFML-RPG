@@ -6,6 +6,7 @@
 #define SFML_RPG_ENTITY_H
 
 #include "Components/MovementComponent.h"
+#include "Components/AnimationComponent.h"
 
 class Entity {
 /**
@@ -25,6 +26,7 @@ protected:
     sf::Texture *texture;
 
     MovementComponent *movementComponent;
+    AnimationComponent *animationComponent;
 
     //endregion
 
@@ -52,6 +54,7 @@ public:
     virtual void setPosition(float x, float y);
     void setTexture(sf::Texture &texture);
     void createMovementComponent(float maxVelocity, float acceleration, float deceleration);
+    void createAnimationComponent(sf::Texture &spriteSheet);
     //endregion
 
     //endregion

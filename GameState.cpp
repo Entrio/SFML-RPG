@@ -90,7 +90,7 @@ void GameState::InitializeTextures() {
     std::cout << "InitializeTextures::GameState" << std::endl;
 
     if (!this->textures["PLAYER_IDLE"].loadFromFile(
-            "assets/sprites/warrior spritesheet calciumtrice.png", sf::IntRect(0, 0, 32, 32)
+            "assets/sprites/warrior spritesheet calciumtrice.png"
     )) {
         std::cout << "GameState::InitializeTextures::loadFromFile" << std::endl;
         throw "Failed to load player textures";

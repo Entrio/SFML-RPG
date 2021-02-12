@@ -15,11 +15,11 @@
 class Player : public Entity {
 private:
     void initVariables();
-    void initComponents();
 protected:
 public:
-    Player(float x, float y, sf::Texture &texture);
-    ~Player();
+    Player(float x, float y, sf::Texture &spriteSheet);
+    ~Player() override;
+    virtual void update(const float &deltaTime);
 };
 
 

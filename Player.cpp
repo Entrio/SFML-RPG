@@ -10,22 +10,25 @@
 
 //region Constructor / Destruct
 
-Player::Player(float x, float y, sf::Texture &texture) {
+Player::Player(float x, float y, sf::Texture &spriteSheet) {
     this->initVariables();
-    this->initComponents();
-
-    this->setTexture(texture);
     this->setPosition(x, y);
+
+    this->createMovementComponent(300.f, 15.f, 4.f);
+    this->createAnimationComponent(spriteSheet);
+
+    this->animationComponent->addAnimation("IDLE", 0, 128, 32, 32, 9, 10.0f);
 }
-Player::~Player() {}
+Player::~Player() = default;
 
 //endregion
 
 void Player::initVariables() {
 
 }
-
-void Player::initComponents() {
-    this->createMovementComponent(300.f, 15.f, 4.f);
+void Player::update(const float &deltaTime) {
+    Entity::update(deltaTime);
+    if (this->animationComponent) {
+        this->animationComponent->play("IDLE", deltaTime);
+    }
 }
-
