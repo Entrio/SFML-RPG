@@ -14,6 +14,7 @@ Player::Player(float x, float y, sf::Texture &spriteSheet) {
     this->initVariables();
     this->setPosition(x, y);
 
+    this->createHitboxComponent(this->sprite, 6.f, 0.f, 20.f, 32.f);
     this->createMovementComponent(150.f, 15.f, 8.f);
     this->createAnimationComponent(spriteSheet);
 
@@ -56,4 +57,6 @@ void Player::update(const float &deltaTime) {
             //this->animationComponent->play("WALK_RIGHT", deltaTime);
         }
     }
+
+    this->hitboxComponent->update();
 }

@@ -61,7 +61,7 @@ void MainMenuState::render(sf::RenderTarget *target) {
     target->draw(this->background);
 
     for (auto const &b : buttons) {
-        b.second->render(target);
+        b.second->render(*target);
     }
 
     //this->testButton->render(target);

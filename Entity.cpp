@@ -38,8 +38,11 @@ void Entity::move(float dirX, float dirY, const float &deltaTime) {
     }
 }
 
-void Entity::render(sf::RenderTarget *target) {
-    target->draw(this->sprite);
+void Entity::render(sf::RenderTarget &target) {
+    target.draw(this->sprite);
+    if (this->hitboxComponent) {
+        this->hitboxComponent->render(target);
+    }
 }
 
 //region Component Functions
@@ -59,6 +62,10 @@ void Entity::createMovementComponent(float maxVelocity, const float acceleration
 
 void Entity::createAnimationComponent(sf::Texture &spriteSheet) {
     this->animationComponent = new AnimationComponent(this->sprite, spriteSheet);
+}
+
+void Entity::createHitboxComponent(sf::Sprite &spriteRef, float xOffset, float yOffset, float width, float height) {
+    this->hitboxComponent = new HitboxComponent(spriteRef, xOffset, yOffset, width, height);
 }
 
 //endregion

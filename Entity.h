@@ -50,13 +50,14 @@ public:
 
     virtual void update(const float &deltaTime);
     virtual void move(float x, float y, const float &deltaTime);
-    virtual void render(sf::RenderTarget *target);
+    virtual void render(sf::RenderTarget &target);
 
     //region Component Functions
     virtual void setPosition(float x, float y);
     void setTexture(sf::Texture &texture);
     void createMovementComponent(float maxVelocity, float acceleration, float deceleration);
     void createAnimationComponent(sf::Texture &spriteSheet);
+    void createHitboxComponent(sf::Sprite &spriteRef, float xOffset, float yOffset, float width, float height);
     //endregion
 
     //endregion
