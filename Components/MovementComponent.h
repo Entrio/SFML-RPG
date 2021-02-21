@@ -57,6 +57,7 @@ public:
     //Region Accessors
 
     const sf::Vector2f &getVelocity() const;
+    bool idle() const;
 
     //endregion
 

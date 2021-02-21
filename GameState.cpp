@@ -89,7 +89,7 @@ void GameState::InitializeFonts() {
 void GameState::InitializeTextures() {
     std::cout << "InitializeTextures::GameState" << std::endl;
 
-    if (!this->textures["PLAYER_IDLE"].loadFromFile(
+    if (!this->textures["PLAYER_SHEET"].loadFromFile(
             "assets/sprites/warrior spritesheet calciumtrice.png"
     )) {
         std::cout << "GameState::InitializeTextures::loadFromFile" << std::endl;
@@ -97,7 +97,7 @@ void GameState::InitializeTextures() {
     }
 }
 void GameState::InitializePlayers() {
-    this->player = new Player(0.f, 0.f, this->textures["PLAYER_IDLE"]);
+    this->player = new Player(0.f, 0.f, this->textures["PLAYER_SHEET"]);
 }
 
 
