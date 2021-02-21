@@ -106,28 +106,28 @@
 		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Game.h">
 			<Option target="SFML_RPG"/>
 		</Unit>
-		<Unit filename="/home/alex/CLionProjects/SFML_RPG/GameState.cpp">
-			<Option target="SFML_RPG"/>
-		</Unit>
-		<Unit filename="/home/alex/CLionProjects/SFML_RPG/GameState.h">
-			<Option target="SFML_RPG"/>
-		</Unit>
-		<Unit filename="/home/alex/CLionProjects/SFML_RPG/MainMenuState.cpp">
-			<Option target="SFML_RPG"/>
-		</Unit>
-		<Unit filename="/home/alex/CLionProjects/SFML_RPG/MainMenuState.h">
-			<Option target="SFML_RPG"/>
-		</Unit>
 		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Player.cpp">
 			<Option target="SFML_RPG"/>
 		</Unit>
 		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Player.h">
 			<Option target="SFML_RPG"/>
 		</Unit>
-		<Unit filename="/home/alex/CLionProjects/SFML_RPG/State.cpp">
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/States/GameState.cpp">
 			<Option target="SFML_RPG"/>
 		</Unit>
-		<Unit filename="/home/alex/CLionProjects/SFML_RPG/State.h">
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/States/GameState.h">
+			<Option target="SFML_RPG"/>
+		</Unit>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/States/MainMenuState.cpp">
+			<Option target="SFML_RPG"/>
+		</Unit>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/States/MainMenuState.h">
+			<Option target="SFML_RPG"/>
+		</Unit>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/States/State.cpp">
+			<Option target="SFML_RPG"/>
+		</Unit>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/States/State.h">
 			<Option target="SFML_RPG"/>
 		</Unit>
 		<Unit filename="/home/alex/CLionProjects/SFML_RPG/UI/Button.cpp">
