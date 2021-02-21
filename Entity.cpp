@@ -13,6 +13,7 @@ Entity::~Entity() {
     // Deleting nullptr has no effect
     delete this->movementComponent;
     delete this->animationComponent;
+    delete this->hitboxComponent;
 };
 //endregion
 
@@ -20,8 +21,9 @@ Entity::~Entity() {
 
 void Entity::initialize() {
     this->texture = nullptr;
-
     this->movementComponent = nullptr;
+    this->animationComponent = nullptr;
+    this->hitboxComponent = nullptr;
 }
 
 void Entity::update(const float &deltaTime) {

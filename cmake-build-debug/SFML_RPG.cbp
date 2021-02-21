@@ -88,6 +88,12 @@
 		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Components/AnimationComponent.h">
 			<Option target="SFML_RPG"/>
 		</Unit>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Components/HitboxComponent.cpp">
+			<Option target="SFML_RPG"/>
+		</Unit>
+		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Components/HitboxComponent.h">
+			<Option target="SFML_RPG"/>
+		</Unit>
 		<Unit filename="/home/alex/CLionProjects/SFML_RPG/Components/MovementComponent.cpp">
 			<Option target="SFML_RPG"/>
 		</Unit>

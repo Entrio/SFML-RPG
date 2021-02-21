@@ -5,6 +5,7 @@
 #ifndef SFML_RPG_ENTITY_H
 #define SFML_RPG_ENTITY_H
 
+#include "Components/HitboxComponent.h"
 #include "Components/MovementComponent.h"
 #include "Components/AnimationComponent.h"
 
@@ -25,6 +26,7 @@ protected:
     sf::Sprite sprite;
     sf::Texture *texture;
 
+    HitboxComponent *hitboxComponent;
     MovementComponent *movementComponent;
     AnimationComponent *animationComponent;
 
