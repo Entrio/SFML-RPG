@@ -21,6 +21,15 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
+enum movementStates {
+    IDLE = 0,
+    MOVING,
+    MOVING_LEFT,
+    MOVING_RIGHT,
+    MOVING_UP,
+    MOVING_DOWN
+};
+
 class MovementComponent {
 private:
 
@@ -57,7 +66,7 @@ public:
     //Region Accessors
 
     const sf::Vector2f &getVelocity() const;
-    bool idle() const;
+    bool getState(short unsigned state) const;
 
     //endregion
 
