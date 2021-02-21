@@ -14,7 +14,8 @@ AnimationComponent::AnimationComponent(
         sf::Sprite &sprite,
         sf::Texture &spriteSheet
 ) : sprite(sprite),
-    spriteSheet(spriteSheet) {
+    spriteSheet(spriteSheet),
+    lastAnimation(nullptr) {
 
 }
 
@@ -55,11 +56,6 @@ void AnimationComponent::Animation::play(const float &deltaTime) {
     // update the timer
     this->timer += 100.f * deltaTime;
     if (this->timer >= this->animTimer) {
-
-        std::cout << "CURRENT: left: " << std::to_string(this->currentRect.left) << " top:"
-                  << std::to_string(this->currentRect.top) << std::endl;
-        std::cout << "END: left: " << std::to_string(this->endRect.left) << " top:" << std::to_string(this->endRect.top)
-                  << std::endl;
         // reset the time
         this->timer = 0.0f;
 
@@ -97,6 +93,16 @@ void AnimationComponent::addAnimation(
 }
 
 void AnimationComponent::play(const std::string animationName, const float &deltaTime) {
+
+    if (this->lastAnimation != this->animations[animationName]) {
+        if (this->lastAnimation == nullptr) {
+            this->lastAnimation = this->animations[animationName];
+        } else {
+            this->lastAnimation->reset();
+            this->lastAnimation = this->animations[animationName];
+        }
+    }
+
     this->animations[animationName]->play(deltaTime);
 }
 

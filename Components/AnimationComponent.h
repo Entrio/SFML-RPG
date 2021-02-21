@@ -49,6 +49,7 @@ private:
     //region Private variables
 
     std::map<std::string, Animation *> animations;
+    Animation *lastAnimation;
     sf::Sprite &sprite;
     sf::Texture &spriteSheet;
 
