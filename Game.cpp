@@ -56,6 +56,7 @@ void Game::InitializeKeys() {
     // Load keyboard configuration
 
     this->supportedKeys["Escape"] = sf::Keyboard::Key::Escape;
+
     this->supportedKeys["A"] = sf::Keyboard::Key::A;
     this->supportedKeys["D"] = sf::Keyboard::Key::D;
     this->supportedKeys["W"] = sf::Keyboard::Key::W;

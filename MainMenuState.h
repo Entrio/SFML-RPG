@@ -10,7 +10,7 @@
 #define SFML_RPG_MAINMENUSTATE_H
 
 #include "State.h"
-#include "../UI/Button.h"
+#include "UI/Button.h"
 
 class MainMenuState : public State {
 private:
@@ -64,6 +64,5 @@ public:
     //endregion
 
 };
-
 
 #endif //SFML_RPG_MAINMENUSTATE_H

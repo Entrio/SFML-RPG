@@ -4,6 +4,7 @@
 
 #include "MainMenuState.h"
 #include "GameState.h"
+#include "EditorState.h"
 
 MainMenuState::MainMenuState(
         sf::RenderWindow *window,
@@ -42,6 +43,10 @@ void MainMenuState::update(const float &deltaTime) {
 
     if (this->buttons["EXIT"]->IsPressed()) {
         this->endState();
+    }
+
+    if (this->buttons["EDITOR"]->IsPressed()) {
+        this->states->push(new EditorState(this->window, this->supportedKeys, this->states));
     }
 
     if (this->buttons["PLAY"]->IsPressed()) {

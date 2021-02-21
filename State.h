@@ -5,7 +5,7 @@
 #ifndef SFML_RPG_STATE_H
 #define SFML_RPG_STATE_H
 
-#include "../Player.h"
+#include "Player.h"
 
 class State {
 

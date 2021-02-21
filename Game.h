@@ -5,8 +5,9 @@
 #ifndef SFML_RPG_GAME_H
 #define SFML_RPG_GAME_H
 
-#include "States/GameState.h"
-#include "States/MainMenuState.h"
+#include "GameState.h"
+#include "MainMenuState.h"
+#include "EditorState.h"
 #include "UI/Button.h"
 
 class Game {
