@@ -19,8 +19,7 @@ Player::Player(float x, float y, sf::Texture &spriteSheet) {
     this->createAnimationComponent(spriteSheet);
 
     this->animationComponent->addAnimation("IDLE", 0, 0, 32, 32, 9, 10.0f);
-    this->animationComponent->addAnimation("WALK_LEFT", 0, 64, 32, 32, 9, 10.0f);
-    this->animationComponent->addAnimation("WALK_RIGHT", 0, 64, 32, 32, 9, 10.0f);
+    this->animationComponent->addAnimation("WALK", 0, 64, 32, 32, 9, 10.0f);
 }
 Player::~Player() = default;
 
@@ -39,12 +38,16 @@ void Player::update(const float &deltaTime) {
     } else if (this->movementComponent->getState(MOVING_LEFT)) {
         // we are not idle
         if (this->animationComponent) {
-            this->animationComponent->play("WALK_LEFT", deltaTime);
+            this->sprite.setScale(-1.f, 1.f);
+            this->sprite.setOrigin(32.f,0.f);
+            this->animationComponent->play("WALK", deltaTime);
         }
     } else if (this->movementComponent->getState(MOVING_RIGHT)) {
         // we are not idle
         if (this->animationComponent) {
-            this->animationComponent->play("WALK_RIGHT", deltaTime);
+            this->sprite.setScale(1.f, 1.f);
+            this->sprite.setOrigin(0.f,0.f);
+            this->animationComponent->play("WALK", deltaTime);
         }
     } else if (this->movementComponent->getState(MOVING_UP)) {
         // we are not idle
