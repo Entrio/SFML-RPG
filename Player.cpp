@@ -52,12 +52,12 @@ void Player::update(const float &deltaTime) {
     } else if (this->movementComponent->getState(MOVING_UP)) {
         // we are not idle
         if (this->animationComponent) {
-            //this->animationComponent->play("WALK_RIGHT", deltaTime);
+            this->animationComponent->play("WALK", deltaTime);
         }
     } else if (this->movementComponent->getState(MOVING_DOWN)) {
         // we are not idle
         if (this->animationComponent) {
-            //this->animationComponent->play("WALK_RIGHT", deltaTime);
+            this->animationComponent->play("WALK", deltaTime);
         }
     }
 
